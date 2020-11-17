@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d566c5e-cec7-4eff-af9f-1b35dbf48d05" name="Default Changelist" comment="" />
+    <list default="true" id="4d566c5e-cec7-4eff-af9f-1b35dbf48d05" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/C950Trucks.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/C950Trucks.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1kQO3zJo89IV57swdzv3L5d8wrC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -51,10 +58,18 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="387" y="272" key="SettingsEditor" timestamp="1605629683524">
+    <state x="835" y="418" key="Github.ShareDialog" timestamp="1605630898864">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="387" y="272" key="SettingsEditor/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1605629683524" />
+    <state x="835" y="418" key="Github.ShareDialog/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1605630898864" />
+    <state x="738" y="225" key="Github.UntrackedFilesDialog" timestamp="1605630995518">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="738" y="225" key="Github.UntrackedFilesDialog/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1605630995518" />
+    <state x="387" y="272" key="SettingsEditor" timestamp="1605629702277">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="387" y="272" key="SettingsEditor/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1605629702277" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
