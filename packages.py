@@ -1,4 +1,4 @@
-import datetime
+# TODO update for submission
 import distance
 import packageImport
 
@@ -15,11 +15,13 @@ first_leave_times = ['8:00:00']
 second_leave_times = ['9:10:00']
 third_leave_times = ['11:00:00']
 
+# TODO create function for updating start times
 # Set delivery_start to first_leave_time for all truck one packages -> O(n)
 for index, value in enumerate(packageImport.get_first_delivery()):
     packageImport.get_first_delivery()[index][9] = first_leave_times[0]
     first_delivery.append(packageImport.get_first_delivery()[index])
 
+# TODO create function for comparing truck address list
 # Compare truck one addresses to address list -> O(n^2)
 for index, outer in enumerate(first_delivery):
     for inner in distance.get_address():
@@ -31,12 +33,17 @@ for index, outer in enumerate(first_delivery):
 distance.get_shortest_route(first_delivery, 1, 0)
 total_distance_1 = 0
 
+# TODO create function for calculating list distance
+
 # Calculate total distance of the first truck and distance of each package -> O(n)
 for index in range(len(distance.first_truck_index())):
     try:
-        total_distance_1 = distance.get_distance(int(distance.first_truck_index()[index]), int(distance.first_truck_index()[index + 1]), total_distance_1)
+        total_distance_1 = distance.get_distance(int(distance.first_truck_index()[index]),
+                                                 int(distance.first_truck_index()[index + 1]), total_distance_1)
 
-        deliver_package = distance.get_time(distance.get_current_distance(int(distance.first_truck_index()[index]), int(distance.first_truck_index()[index + 1])), first_leave_times)
+        deliver_package = distance.get_time(distance.get_current_distance(int(distance.first_truck_index()[index]),
+                                                                          int(distance.first_truck_index()[index + 1])),
+                                            first_leave_times)
 
         distance.first_truck_list()[index][10] = (str(deliver_package))
         packageImport.get_hash_map().update(int(distance.first_truck_list()[index][0]), first_delivery)
@@ -62,9 +69,12 @@ total_distance_2 = 0
 # Calculate total distance of the second truck and distance of each package -> O(n)
 for index in range(len(distance.second_truck_index())):
     try:
-        total_distance_2 = distance.get_distance(int(distance.second_truck_index()[index]), int(distance.second_truck_index()[index + 1]), total_distance_2)
+        total_distance_2 = distance.get_distance(int(distance.second_truck_index()[index]),
+                                                 int(distance.second_truck_index()[index + 1]), total_distance_2)
 
-        deliver_package = distance.get_time(distance.get_current_distance(int(distance.second_truck_index()[index]),int(distance.second_truck_index()[index + 1])), second_leave_times)
+        deliver_package = distance.get_time(distance.get_current_distance(int(distance.second_truck_index()[index]),
+                                                                          int(distance.second_truck_index()[
+                                                                                  index + 1])), second_leave_times)
 
         distance.second_truck_list()[index][10] = (str(deliver_package))
         packageImport.get_hash_map().update(int(distance.second_truck_list()[index][0]), second_delivery)
@@ -90,9 +100,12 @@ total_distance_3 = 0
 # Calculate total distance of the third truck and distance of each package -> O(n)
 for index in range(len(distance.third_truck_index())):
     try:
-        total_distance_3 = distance.get_distance(int(distance.third_truck_index()[index]), int(distance.third_truck_index()[index + 1]), total_distance_3)
+        total_distance_3 = distance.get_distance(int(distance.third_truck_index()[index]),
+                                                 int(distance.third_truck_index()[index + 1]), total_distance_3)
 
-        deliver_package = distance.get_time(distance.get_current_distance(int(distance.third_truck_index()[index]), int(distance.third_truck_index()[index + 1])), third_leave_times)
+        deliver_package = distance.get_time(distance.get_current_distance(int(distance.third_truck_index()[index]),
+                                                                          int(distance.third_truck_index()[index + 1])),
+                                            third_leave_times)
         distance.third_truck_list()[index][10] = (str(deliver_package))
         packageImport.get_hash_map().update(int(distance.third_truck_list()[index][0]), third_delivery)
     except IndexError:

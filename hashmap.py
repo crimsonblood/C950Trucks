@@ -1,4 +1,9 @@
-### *** TODO UPDATE
+# All the same?
+class HashTableEntry:
+    def __init__(self, key, item):
+        self.key = key
+        self.item = item
+
 
 class HashMap:
     def __init__(self, capacity=10):
@@ -6,11 +11,11 @@ class HashMap:
         for _ in range(capacity):
             self.map.append([])
 
-    # Create hash key -> O(1)
+    # Create hash key
     def create_hash_key(self, key):
         return int(key) % len(self.map)
 
-    # Insert package into hash table -> O(n)
+    # Insert key and value pair into hash table
     def insert(self, key, value):
         key_hash = self.create_hash_key(key)
         key_value = [key, value]
@@ -26,7 +31,7 @@ class HashMap:
             self.map[key_hash].append(key_value)
             return True
 
-    # Update package in hash table -> O(n)
+    # Update key and value pair in hashtable
     def update(self, key, value):
         key_hash = self.create_hash_key(key)
         if self.map[key_hash] is not None:
@@ -38,7 +43,7 @@ class HashMap:
         else:
             print('There was an error with updating on key: ' + key)
 
-    # Get a value from hash table -> O(n)
+    # Get a value from the hashtable
     def get_value(self, key):
         key_hash = self.create_hash_key(key)
         if self.map[key_hash] is not None:
@@ -47,7 +52,7 @@ class HashMap:
                     return pair[1]
         return None
 
-    # Delete a value from hash table -> O(n)
+    # Delete a value from the hashtable
     def delete(self, key):
         key_hash = self.create_hash_key(key)
 
@@ -58,9 +63,3 @@ class HashMap:
                 self.map[key_hash].pop(i)
                 return True
         return False
-
-
-class HashTableEntry:
-    def __init__(self, key, item):
-        self.key = key
-        self.item = item

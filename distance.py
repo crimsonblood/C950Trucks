@@ -1,3 +1,4 @@
+# TODO Update for submission
 import csv
 import datetime
 
@@ -37,7 +38,7 @@ with open('./datacsv/WGUPS Name Table.csv') as namefile:
         total = datetime.timedelta()
         for i in truck_list:
             (hrs, mins, secs) = i.split(':')
-            total += datetime.timedelta(hours=int(hrs), minutes=int(mins), seconds=(secs))
+            total += datetime.timedelta(hours=int(hrs), minutes=int(mins), seconds=int(secs))
         return total
 
     # these lists represent the sorted trucks that are put in order of efficiency in the function below
@@ -74,7 +75,7 @@ with open('./datacsv/WGUPS Name Table.csv') as namefile:
     # Base Case: Length of the list is False, or zero.
 
     # Space-Time Complexity -> O(n^2)
-
+# TODO main function of this assignment, prob rewrite or use different alg
     def get_shortest_route(_list, num, curr_location):
         if not len(_list):
             return _list
@@ -115,6 +116,7 @@ with open('./datacsv/WGUPS Name Table.csv') as namefile:
     second_truck_indices.insert(0, '0')
     third_truck_indices.insert(0, '0')
 
+    # TODO better way to store the three truck lists? more expandable method
     # The following are all helper functions to return a desired value -> O(1)
     def first_truck_index():
         return first_truck_indices
