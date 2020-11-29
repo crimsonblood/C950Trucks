@@ -1,4 +1,3 @@
-# TODO Update for submission
 import csv
 import datetime
 
