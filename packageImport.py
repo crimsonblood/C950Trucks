@@ -1,71 +1,68 @@
-#TODO Update for submisison
 import csv
 from hashmap import HashMap
 
-# Read CSV files
+# Reads WGUPS Package File to import package details
 with open('./datacsv/WGUPS Package File.csv') as file:
     package_csv = csv.reader(file, delimiter=',')
 
-    hashmap = HashMap()  # Create an instance of HashMap class
-    first_delivery = []  # first truck delivery
-    second_delivery = []  # second truck delivery
-    final_delivery = []  # final truck delivery
+    hashmap = HashMap()  # Creates an object of HashMap
+    deliveries = [[], [], []]
+    delivery_one = []  # List for delivery one on the first truck
+    delivery_two = []  # List for delivery two on the second truck
+    delivery_three = []  # List for delivery three on the final truck
 
-    # Insert values from csv file into key/value pairs of the hash table -> O(n)
+    # Insert values from csv file into key/value pairs of the hash table
+    # Space-time complexity -> O(n)
     for row in package_csv:
-        id = row[0]
+        package_id = row[0]
+        address_location = ''
         address = row[1]
         city = row[2]
         state = row[3]
-        zip = row[4]
-        delivery = row[5]
-        mass = row[6]
-        note = row[7]
+        zip_code = row[4]
+        deadline = row[5]
+        weight = row[6]
+        notes = row[7]
         delivery_start = ''
-        address_location = ''
-        delivery_status = 'At hub'
+        delivery_end = ''
 
-        package = [id, address_location, address, city, state, zip, delivery, mass, note, delivery_start,
-                   delivery_status]
+        package = [package_id, address_location, address, city, state, zip_code, deadline, weight, notes,
+                   delivery_start, delivery_end]
 
-        # Conditional statements to determine which truck a package should be located and
-        # put these packages into a nested list for quick indexing
-
-        # Correct incorrect package details
+        # Conditional statements to determine incorrect package details and to update them
         if '84104' in package[5] and '10:30' not in package[6]:
-            final_delivery.append(package)
+            deliveries[2].append(package)
         if 'Wrong address listed' in package[8]:
             package[2] = '410 S State St'
             package[5] = '84111'
-            final_delivery.append(package)
-        # First truck's first delivery
+            deliveries[2].append(package)
+
+        # Adding specific packages to delivery lists
+        # Delivery One
         if package[6] != 'EOD' and ('Must' in package[8] or 'None' in package[8]):
-            first_delivery.append(package)
-
-        # Second truck's delivery
+            deliveries[0].append(package)
+        # Delivery Two
         if 'Can only be' in package[8] or 'Delayed' in package[8]:
-            second_delivery.append(package)
+            deliveries[1].append(package)
 
-        # Check remaining packages
-        if package not in first_delivery and package not in second_delivery and package not in final_delivery:
-            second_delivery.append(package) if len(second_delivery) < len(final_delivery) else final_delivery.append(
-                package)
+        # Puts remaining packages into delivery lists
+        if package not in deliveries[0] and package not in deliveries[1] and package not in deliveries[2]:
+            if len(deliveries[1]) < len(deliveries[2]):
+                deliveries[1].append(package)
+            else:
+                deliveries[2].append(package)
 
-        # Insert value into the hash table
-        hashmap.insert(id, package)
+        # Insert package value into hash table
+        hashmap.insert(package_id, package)
 
-    # Get packages on the first delivery -> O(1)
-    def get_first_delivery():
-        return first_delivery
 
-    # Get packages on the second delivery -> O(1)
-    def get_second_delivery():
-        return second_delivery
+# Returns packages for the specified delivery number
+# Space-time complexity -> O(1)
+def get_deliveries(num):
+    return deliveries[num]
 
-    # Get packages on the final delivery -> O(1)
-    def get_final_delivery():
-        return final_delivery
 
-    # Get full list of packages -> O(1)
-    def get_hash_map():
-        return hashmap
+# Returns full list of packages
+# Space-time complexity -> O(1)
+def get_hashmap():
+    return hashmap
